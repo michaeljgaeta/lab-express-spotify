@@ -2,11 +2,8 @@
 <div class="album">
   <img src="{{ images.[1].url }}" />
   <div>
-    <h2>{{ name }}</h2>
-    <small>{{ genres }}</small>
-    <br>
-    <small>{{ description }}</small>
-    <a href="/albums/">View Albums</a>
+    <h4>{{ name }}</h4>
+    <a href="/tracks/{{ id }}">View Tracks</a>
   </div>
 </div>
 {{/each}}

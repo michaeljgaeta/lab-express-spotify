@@ -49,13 +49,26 @@ app.get("/artist-search/", (request, response) => {
 app.get("/albums/:id", (request, response) => {
   const id = request.params.id;
   spotifyApi
-    .getArtistAlbums("id")
-    .then((artistData) => {
-      const data = artistData.body.artists.items;
+    .getArtistAlbums(id)
+    .then((albumData) => {
+      const data = albumData.body.items;
       console.log("The received album data from the API: ", data);
       response.render("albums", { results: data });
     })
     .catch((err) => console.log("The error while searching albums occurred: ", err));
+});
+
+//track data route handler
+app.get("/tracks/:id", (request, response) => {
+  const id = request.params.id;
+  spotifyApi
+    .getAlbumTracks(id)
+    .then((tracksData) => {
+      const data = tracksData.body.items;
+      console.log("The received tracks data from the API: ", data);
+      response.render("tracks", { results: data });
+    })
+    .catch((err) => console.log("The error while searching tracks occurred: ", err));
 });
 
 /////////////////////////////////////////
