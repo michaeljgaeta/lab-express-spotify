@@ -1,0 +1,13 @@
+img {
+  max-width: 200px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.artist {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
